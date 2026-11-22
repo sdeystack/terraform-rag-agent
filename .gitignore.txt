@@ -1,0 +1,9 @@
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+lambda_function.zip
+__pycache__/
+*.pyc
+.venv/
+chunks.json
+docs/
