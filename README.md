@@ -77,8 +77,11 @@ Invoke-RestMethod -Method Post -Uri "$api/ask" -ContentType "application/json" -
 **4. Destroy (same session):**
 
 ```powershell
+aws s3 rm s3://rag-docs-sdeystack --recursive
 terraform destroy
 ```
+
+Empty the bucket first — Terraform cannot delete a bucket that still holds `chunks.json`. Verify afterwards: `aws s3 ls` should no longer list `rag-docs-sdeystack`, and `terraform state list` should print nothing.
 
 Then verify nothing is left running (`aws s3 ls`, Lambda console) so the next month's bill stays $0.
 
