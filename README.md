@@ -134,7 +134,7 @@ $r.answer
 
 The agent call makes several model calls, so it can take around 20 seconds; API Gateway caps at 30.
 
-**3b. Run the agent (local):**
+**3c. Run the agent (local):**
 
 ```powershell
 pip install langgraph
@@ -143,7 +143,7 @@ python agent.py "Summarise the EKS document, then what does it say about the con
 
 It prints every step it takes (plan, summarise, search, answer) so you can see the graph working.
 
-**3c. Run the evals (local):**
+**3d. Run the evals (local):**
 
 ```powershell
 python eval.py
