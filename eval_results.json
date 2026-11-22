@@ -1,0 +1,272 @@
+[
+  {
+    "id": 1,
+    "question": "What is a Lambda function handler?",
+    "expected": "The method in the function code that processes events.",
+    "sources": [
+      "How-Lambda-works.pdf"
+    ],
+    "answer": "A Lambda function handler is the method in your function code that processes events. When a function runs in response to an event, Lambda executes the function handler, passing data about the event that caused the function to run directly to the handler. While multiple methods or functions can be included in a Lambda function, only one handler is permitted. (Source: How-Lambda-works.pdf, chunk 2)",
+    "verdict": "right",
+    "citation_ok": true,
+    "reason": "The answer accurately defines a Lambda function handler and cites the expected source.",
+    "steps": [
+      "PLAN: Explain what a Lambda function handler is and its significance in AWS Lambda. (first step: search)",
+      "SEARCH: 'What is a Lambda function handler?' -> top 5 chunks, best score 0.66\n    - How-Lambda-works.pdf (chunk 0, score 0.66)\n    - How-Lambda-works.pdf (chunk 2, score 0.64)\n    - How-Lambda-works.pdf (chunk 1, score 0.61)\n    - How-Lambda-works.pdf (chunk 6, score 0.61)\n    - How-Lambda-works.pdf (chunk 4, score 0.56)",
+      "ANSWER: final answer written from the notebook"
+    ],
+    "retries": 0
+  },
+  {
+    "id": 2,
+    "question": "What is a Lambda execution role?",
+    "expected": "An IAM role the function assumes, granting it permission to access AWS services and resources.",
+    "sources": [
+      "How-Lambda-works.pdf"
+    ],
+    "answer": "A Lambda execution role is a special kind of AWS Identity and Access Management (IAM) role that allows a Lambda function to access other AWS resources and perform actions on them. Each Lambda function must have an execution role, which is associated with specific permissions defined in a policy. When a function is invoked, Lambda assumes this role, granting the function permission to take the actions outlined in the role's policy. \n\nWhen you create a function in the Lambda console, Lambda automatically generates an execution role with basic permissions to write logs to Amazon CloudWatch Logs. To enable additional permissions for accessing other AWS resources, such as a DynamoDB table, you would need to modify the role by adding more permissions. The easiest way to do this is by using an AWS managed policy, which provides permissions for common use cases (source: [How-Lambda-works.pdf, chunks 8, 9]).",
+    "verdict": "right",
+    "citation_ok": true,
+    "reason": "The answer accurately describes the Lambda execution role and its purpose.",
+    "steps": [
+      "PLAN: Identify the purpose and function of a Lambda execution role in AWS. (first step: search)",
+      "SEARCH: 'What is a Lambda execution role?' -> top 5 chunks, best score 0.69\n    - How-Lambda-works.pdf (chunk 8, score 0.69)\n    - How-Lambda-works.pdf (chunk 1, score 0.63)\n    - How-Lambda-works.pdf (chunk 9, score 0.63)\n    - Using-Lambda-with-API-Gateway.pdf (chunk 3, score 0.60)\n    - How-Lambda-works.pdf (chunk 4, score 0.60)",
+      "ANSWER: final answer written from the notebook"
+    ],
+    "retries": 0
+  },
+  {
+    "id": 3,
+    "question": "What permission must a function's resource-based policy grant another AWS service to invoke it?",
+    "expected": "lambda:InvokeFunction.",
+    "sources": [
+      "How-Lambda-works.pdf"
+    ],
+    "answer": "To grant another AWS service permission to invoke a Lambda function, the function's resource-based policy must grant that service permission to use the `lambda:InvokeFunction` action. (Source: How-Lambda-works.pdf, chunk 10)",
+    "verdict": "right",
+    "citation_ok": true,
+    "reason": "The answer accurately states the required permission.",
+    "steps": [
+      "PLAN: Identify the specific permission required for an AWS service to invoke a Lambda function. (first step: search)",
+      "SEARCH: 'What permission must a function's resource-based policy grant another AWS service to invoke it?' -> top 5 chunks, best score 0.70\n    - How-Lambda-works.pdf (chunk 11, score 0.70)\n    - How-Lambda-works.pdf (chunk 10, score 0.67)\n    - How-Lambda-works.pdf (chunk 12, score 0.66)\n    - How-Lambda-works.pdf (chunk 9, score 0.62)\n    - How-Lambda-works.pdf (chunk 8, score 0.58)",
+      "ANSWER: final answer written from the notebook"
+    ],
+    "retries": 0
+  },
+  {
+    "id": 4,
+    "question": "What does the Lambda with API Gateway tutorial build?",
+    "expected": "An API that invokes a Lambda function when it receives a request.",
+    "sources": [
+      "Using-Lambda-with-API-Gateway.pdf"
+    ],
+    "answer": "The Lambda with API Gateway tutorial builds a REST API to invoke a Lambda Event Function that performs CRUD operations on a DynamoDB table. (Source: Tutorial: Using Lambda with API Gateway - AWS Lambda)",
+    "verdict": "partly",
+    "citation_ok": true,
+    "reason": "The answer includes relevant facts but adds unnecessary details about CRUD operations.",
+    "steps": [
+      "PLAN: Summarise the tutorial's objectives and outcomes related to Lambda and API Gateway. (first step: summarise)",
+      "SUMMARISE: Using-Lambda-with-API-Gateway.pdf (19 chunks) -> summary written to notebook",
+      "ANSWER: final answer written from the notebook"
+    ],
+    "retries": 0
+  },
+  {
+    "id": 5,
+    "question": "What tools must be installed before creating an EKS cluster with eksctl?",
+    "expected": "The AWS CLI, kubectl, and eksctl.",
+    "sources": [
+      "Amazon-EKS.pdf"
+    ],
+    "answer": "To create an EKS cluster with eksctl, you must install and configure the following tools: AWS CLI, kubectl, and eksctl. (Source: Get started with Amazon EKS - eksctl - Amazon EKS)",
+    "verdict": "right",
+    "citation_ok": true,
+    "reason": "The answer accurately lists the required tools and cites a relevant source.",
+    "steps": [
+      "PLAN: Summarize the document to find out the required tools for creating an EKS cluster with eksctl. (first step: summarise)",
+      "SUMMARISE: Amazon-EKS.pdf (7 chunks) -> summary written to notebook",
+      "SEARCH: 'What tools must be installed before creating an EKS cluster with eksctl?' -> top 5 chunks, best score 0.75\n    - Amazon-EKS.pdf (chunk 0, score 0.75)\n    - Amazon-EKS.pdf (chunk 1, score 0.65)\n    - Amazon-EKS.pdf (chunk 6, score 0.63)\n    - Amazon-EKS.pdf (chunk 5, score 0.58)\n    - EKS-Control-Plane.pdf (chunk 0, score 0.56)",
+      "ANSWER: final answer written from the notebook"
+    ],
+    "retries": 0
+  },
+  {
+    "id": 6,
+    "question": "What command creates an EKS cluster with eksctl?",
+    "expected": "eksctl create cluster.",
+    "sources": [
+      "Amazon-EKS.pdf"
+    ],
+    "answer": "To create an EKS cluster with eksctl, you would use the command:\n\n`eksctl create cluster --name my-cluster --region region-code`\n\nThis command specifies the name and the region for the cluster. \n\n(Source: Amazon-EKS.pdf, chunk 3)",
+    "verdict": "partly",
+    "citation_ok": true,
+    "reason": "The answer provides the correct command but adds unnecessary details.",
+    "steps": [
+      "PLAN: I will search for the specific command to create an EKS cluster using eksctl. (first step: search)",
+      "SEARCH: 'command creates an EKS cluster with eksctl' -> top 5 chunks, best score 0.70\n    - Amazon-EKS.pdf (chunk 0, score 0.70)\n    - Amazon-EKS.pdf (chunk 1, score 0.63)\n    - Amazon-EKS.pdf (chunk 3, score 0.59)\n    - Amazon-EKS.pdf (chunk 5, score 0.58)\n    - Amazon-EKS.pdf (chunk 4, score 0.55)",
+      "ANSWER: final answer written from the notebook"
+    ],
+    "retries": 0
+  },
+  {
+    "id": 7,
+    "question": "How does EKS keep the control plane available?",
+    "expected": "It runs multiple API server nodes across Availability Zones and replaces unhealthy control plane nodes.",
+    "sources": [
+      "EKS-Control-Plane.pdf"
+    ],
+    "answer": "EKS keeps the control plane available by utilizing a highly available architecture with multiple nodes across distinct Availability Zones, which eliminates single points of failure and enhances overall availability. (Source: EKS Control Plane - Amazon EKS)",
+    "verdict": "right",
+    "citation_ok": true,
+    "reason": "The answer correctly describes the architecture for availability.",
+    "steps": [
+      "PLAN: Summarise how EKS keeps the control plane available. (first step: summarise)",
+      "SUMMARISE: EKS-Control-Plane.pdf (20 chunks) -> summary written to notebook",
+      "ANSWER: final answer written from the notebook"
+    ],
+    "retries": 0
+  },
+  {
+    "id": 8,
+    "question": "What does EKS do when the load on the control plane increases?",
+    "expected": "It monitors the load and scales the control plane instances.",
+    "sources": [
+      "EKS-Control-Plane.pdf"
+    ],
+    "answer": "When the load on the control plane increases, EKS actively monitors the load on control plane instances and automatically scales them to ensure high performance. This scaling helps manage the availability and scalability of the Kubernetes control plane nodes. Additionally, EKS automatically replaces unhealthy control plane nodes to maintain stability. \n\nSources:\n- [EKS-Control-Plane.pdf, chunk 18]\n- [EKS-Control-Plane.pdf, chunk 0]",
+    "verdict": "right",
+    "citation_ok": true,
+    "reason": "The answer correctly summarizes the expected response and cites the source.",
+    "steps": [
+      "PLAN: Identify how EKS manages control plane load. (first step: search)",
+      "SEARCH: 'What happens when the load on the control plane increases in EKS?' -> top 5 chunks, best score 0.63\n    - EKS-Control-Plane.pdf (chunk 0, score 0.63)\n    - EKS-Control-Plane.pdf (chunk 18, score 0.63)\n    - EKS-Control-Plane.pdf (chunk 1, score 0.62)\n    - EKS-Control-Plane.pdf (chunk 14, score 0.56)\n    - EKS-Control-Plane.pdf (chunk 3, score 0.53)",
+      "ANSWER: final answer written from the notebook"
+    ],
+    "retries": 0
+  },
+  {
+    "id": 9,
+    "question": "How do you configure a Terraform provider?",
+    "expected": "With a provider block, declaring the source and version, usually inside a required_providers block.",
+    "sources": [
+      "Configure-Terraform-providers.pdf"
+    ],
+    "answer": "To configure a Terraform provider, you need to install, configure, and authenticate the selected provider, as they are essential plugins that allow Terraform to interact with various cloud platforms and APIs. You can source providers from the Terraform registry, and the tutorial provides guidance on sourcing, versioning, and safely upgrading providers with examples for AWS, Azure, and Google Cloud Platform. Additionally, you can configure multiple instances of the same provider using aliases to effectively manage resource deployments in different regions or with varying credentials. \n\n(Source: Configure Terraform providers | Terraform | HashiCorp Developer)",
+    "verdict": "partly",
+    "citation_ok": true,
+    "reason": "Missing details about the required_providers block.",
+    "steps": [
+      "PLAN: I will summarize the document on configuring Terraform providers. (first step: summarise)",
+      "SUMMARISE: Configure-Terraform-providers.pdf (34 chunks) -> summary written to notebook",
+      "ANSWER: final answer written from the notebook"
+    ],
+    "retries": 0
+  },
+  {
+    "id": 10,
+    "question": "What is the purpose of the required_providers block in Terraform?",
+    "expected": "To declare which providers a configuration needs, with their source addresses and version constraints.",
+    "sources": [
+      "Configure-Terraform-providers.pdf"
+    ],
+    "answer": "The purpose of the `required_providers` block in Terraform is to specify which providers your configuration requires. It includes two main attributes: \n\n1. **source**: This indicates the provider's address in the registry, following the format `[hostname/]namespace/type`. If no hostname is specified, Terraform defaults to `registry.terraform.io`.\n   \n2. **version**: This is a version constraint that determines which provider versions are acceptable. For instance, a version constraint of `~> 6.3.0` allows any version in the 6.3.x series while preventing updates to 6.4 and later.\n\nThese specifications help Terraform manage dependencies on provider plugins effectively.\n\n(Source: [Configure-Terraform-providers.pdf, chunk 4])",
+    "verdict": "right",
+    "citation_ok": true,
+    "reason": "The answer accurately describes the purpose of the required_providers block and cites the correct source.",
+    "steps": [
+      "PLAN: I will search for the purpose of the required_providers block in Terraform. (first step: search)",
+      "SEARCH: 'purpose of the required_providers block in Terraform' -> top 5 chunks, best score 0.72\n    - Configure-Terraform-providers.pdf (chunk 4, score 0.72)\n    - Configure-Terraform-providers.pdf (chunk 3, score 0.69)\n    - Configure-Terraform-providers.pdf (chunk 7, score 0.64)\n    - Configure-Terraform-providers.pdf (chunk 0, score 0.64)\n    - Configure-Terraform-providers.pdf (chunk 8, score 0.61)",
+      "ANSWER: final answer written from the notebook"
+    ],
+    "retries": 0
+  },
+  {
+    "id": 11,
+    "question": "How do you delete an EKS cluster created with eksctl?",
+    "expected": "eksctl delete cluster.",
+    "sources": [
+      "Amazon-EKS.pdf"
+    ],
+    "answer": "To delete an EKS cluster created with eksctl, you can use the following command:\n\n```\neksctl delete cluster --name my-cluster --region region-code\n```\n\nThis information is sourced from:\n- [Amazon-EKS.pdf, chunk 5]",
+    "verdict": "partly",
+    "citation_ok": true,
+    "reason": "The answer provides additional details but misses the simpler expected command.",
+    "steps": [
+      "PLAN: I will look for specific instructions on deleting an EKS cluster using eksctl. (first step: search)",
+      "SEARCH: 'how to delete an EKS cluster created with eksctl' -> top 5 chunks, best score 0.69\n    - Amazon-EKS.pdf (chunk 5, score 0.69)\n    - Amazon-EKS.pdf (chunk 0, score 0.62)\n    - Amazon-EKS.pdf (chunk 4, score 0.57)\n    - Amazon-EKS.pdf (chunk 1, score 0.56)\n    - Amazon-EKS.pdf (chunk 3, score 0.54)",
+      "ANSWER: final answer written from the notebook"
+    ],
+    "retries": 0
+  },
+  {
+    "id": 12,
+    "question": "Summarise the EKS document, then what does it say about the control plane?",
+    "expected": "A summary of the eksctl getting-started guide, plus control plane facts: managed service, multi-AZ API servers, unhealthy nodes replaced, load monitored and scaled.",
+    "sources": [
+      "Amazon-EKS.pdf",
+      "EKS-Control-Plane.pdf"
+    ],
+    "answer": "**Summary of the EKS Document:**\nThe document provides a guide for creating and managing an Amazon EKS cluster using the eksctl command line utility. It emphasizes the installation and configuration of AWS CLI, kubectl, and eksctl tools before starting. The tutorial includes steps to create a cluster with default settings and supports multiple node types, including Fargate and managed nodes. After the cluster creation, users can utilize kubectl commands to view Kubernetes resources. The document also highlights the need to clean up resources post-use and outlines next steps for enhancing cluster functionality and security.\n\n**Control Plane Information:**\nAmazon EKS is a managed Kubernetes service that simplifies running Kubernetes on AWS without requiring users to manage their own control plane or worker nodes. EKS automatically manages the availability and scalability of the control plane, replacing unhealthy nodes as needed. The EKS control plane is designed to eliminate single points of failure, running inside an EKS managed VPC with a minimum of two API server nodes in distinct Availability Zones for high availability. It also includes recommendations for monitoring control plane metrics to ensure performance and stability. \n\nSources:\n- Summary: Get started with Amazon EKS - eksctl - Amazon EKS\n- Control Plane Information: [EKS-Control-Plane.pdf, chunk 0], [EKS-Control-Plane.pdf, chunk 1], [EKS-Control-Plane.pdf, chunk 3], [EKS-Control-Plane.pdf, chunk 4]",
+    "verdict": "right",
+    "citation_ok": true,
+    "reason": "The answer accurately summarizes the document and correctly describes the control plane features.",
+    "steps": [
+      "PLAN: First summarise the Amazon EKS document, then look for details regarding the control plane. (first step: summarise)",
+      "SUMMARISE: Amazon-EKS.pdf (7 chunks) -> summary written to notebook",
+      "SEARCH: 'Summarise the EKS document, then what does it say about the control plane?' -> top 5 chunks, best score 0.62\n    - EKS-Control-Plane.pdf (chunk 0, score 0.62)\n    - EKS-Control-Plane.pdf (chunk 1, score 0.61)\n    - EKS-Control-Plane.pdf (chunk 3, score 0.47)\n    - EKS-Control-Plane.pdf (chunk 18, score 0.45)\n    - EKS-Control-Plane.pdf (chunk 4, score 0.43)",
+      "ANSWER: final answer written from the notebook"
+    ],
+    "retries": 0
+  },
+  {
+    "id": 13,
+    "question": "Summarise the Lambda concepts document, then what is an execution role?",
+    "expected": "A summary of how Lambda works, plus: the execution role is the IAM role the function assumes to access AWS services.",
+    "sources": [
+      "How-Lambda-works.pdf"
+    ],
+    "answer": "Summary of the Lambda concepts document:\n\nThe document \"How Lambda works - AWS Lambda\" outlines the fundamental aspects of AWS Lambda, which includes Lambda functions as the basic components of serverless applications, the execution environment managed by AWS, event triggers that invoke functions, and the permissions and roles associated with Lambda operations. It emphasizes the importance of least-privilege permissions through managed and customer-managed policies.\n\nWhat is an execution role?\n\nAn execution role is a special type of AWS Identity and Access Management (IAM) role that is created in an AWS account with specific permissions associated with it. Every Lambda function must have an execution role, which allows the function to access other AWS resources and perform actions on them. When a Lambda function is invoked, AWS Lambda assumes the execution role and grants permission to execute actions defined in the role's policy. A single execution role can be used by multiple functions, and basic permissions are automatically created when setting up a function. Additional permissions can be added through AWS managed policies (How-Lambda-works.pdf, chunk 8 and chunk 9).",
+    "verdict": "right",
+    "citation_ok": true,
+    "reason": "The answer correctly summarizes the document and defines the execution role accurately.",
+    "steps": [
+      "PLAN: Summarise the concepts of AWS Lambda, then explain what an execution role is. (first step: summarise)",
+      "SUMMARISE: How-Lambda-works.pdf (13 chunks) -> summary written to notebook",
+      "SEARCH: 'Summarise the Lambda concepts document, then what is an execution role?' -> top 5 chunks, best score 0.66\n    - How-Lambda-works.pdf (chunk 8, score 0.66)\n    - How-Lambda-works.pdf (chunk 1, score 0.62)\n    - How-Lambda-works.pdf (chunk 0, score 0.58)\n    - How-Lambda-works.pdf (chunk 4, score 0.58)\n    - How-Lambda-works.pdf (chunk 9, score 0.57)",
+      "ANSWER: final answer written from the notebook"
+    ],
+    "retries": 0
+  },
+  {
+    "id": 14,
+    "question": "How much does it cost to run a Lambda function for a million requests?",
+    "expected": "Not in these documents.",
+    "sources": [],
+    "answer": "Not in these documents.",
+    "verdict": "right",
+    "citation_ok": true,
+    "reason": "The answer correctly states that the information is not available.",
+    "steps": [
+      "PLAN: I will search for the cost information related to running a Lambda function for a million requests. (first step: search)",
+      "SEARCH: 'cost to run a Lambda function for a million requests' -> top 5 chunks, best score 0.48\n    - How-Lambda-works.pdf (chunk 5, score 0.48)\n    - How-Lambda-works.pdf (chunk 0, score 0.47)\n    - How-Lambda-works.pdf (chunk 1, score 0.47)\n    - How-Lambda-works.pdf (chunk 4, score 0.46)\n    - Using-Lambda-with-API-Gateway.pdf (chunk 6, score 0.45)",
+      "ANSWER: final answer written from the notebook"
+    ],
+    "retries": 0
+  },
+  {
+    "id": 15,
+    "question": "What is the default VPC CIDR block for an EKS cluster?",
+    "expected": "Not in these documents.",
+    "sources": [],
+    "answer": "Not in these documents.",
+    "verdict": "right",
+    "citation_ok": true,
+    "reason": "The answer correctly states the expected response.",
+    "steps": [
+      "PLAN: Look for the default VPC CIDR block information in the Amazon EKS documentation. (first step: search)",
+      "SEARCH: 'default VPC CIDR block for an EKS cluster' -> top 5 chunks, best score 0.49\n    - EKS-Control-Plane.pdf (chunk 19, score 0.49)\n    - EKS-Control-Plane.pdf (chunk 15, score 0.48)\n    - EKS-Control-Plane.pdf (chunk 2, score 0.46)\n    - Amazon-EKS.pdf (chunk 6, score 0.46)\n    - EKS-Control-Plane.pdf (chunk 1, score 0.44)",
+      "ANSWER: final answer written from the notebook"
+    ],
+    "retries": 0
+  }
+]
